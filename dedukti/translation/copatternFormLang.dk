@@ -1,0 +1,210 @@
+TYPE__Lang : (A : Agda.Term (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0))) -> Type.
+Lang : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.code (Agda.set univ.0)))).
+[A] Agda.Term _ (Lang A) --> TYPE__Lang A.
+{|!Lang'constructor|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool ({|!ν|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (_0 => (Lang A))) ({|!δ|} => (Lang A))))))).
+def {|!Lang__ν|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (r => Agda__Builtin__Bool.Bool)))).
+def {|!Lang__δ|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (r => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (_0 => (Lang A))))))).
+
+
+[A, {|!ν|}, {|!δ|}] {|!Lang__ν|} A ({|!Lang'constructor|} A {|!ν|} {|!δ|}) --> {|!ν|}.
+ 
+[A, {|!ν|}, {|!δ|}] {|!Lang__δ|} A ({|!Lang'constructor|} A {|!ν|} {|!δ|}) --> {|!δ|}.
+ 
+def {|!_∈_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda__Builtin__List.List univ.0 A) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => Agda__Builtin__Bool.Bool)))))).
+[A, x] {|!_∈_|} A (Agda__Builtin__List.{|!List__[]|} {univ.0} A) x --> {|!Lang__ν|} A x.
+[A, x1, x0, x] {|!_∈_|} A (Agda__Builtin__List.{|!List___∷_|} {univ.0} A x1 x0) x --> {|!_∈_|} A x0 ({|!Lang__δ|} A x x1).
+ 
+def trie : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda__Builtin__List.List univ.0 A) (_0 => Agda__Builtin__Bool.Bool)) (f => (Lang A))))).
+[A, f] {|!Lang__ν|} A (trie A f) --> f (Agda__Builtin__List.{|!List__[]|} univ.0 A).
+[A, f, x] {|!Lang__δ|} A (trie A f) x --> trie A (ls => f (Agda__Builtin__List.{|!List___∷_|} univ.0 A x ls)).
+ 
+def {|!∅|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Lang A))).
+[A] {|!Lang__ν|} A ({|!∅|} A) --> Agda__Builtin__Bool.Bool__false.
+[A, x] {|!Lang__δ|} A ({|!∅|} A) x --> {|!∅|} A.
+ 
+def {|!A*|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Lang A))).
+[A] {|!Lang__ν|} A ({|!A*|} A) --> Agda__Builtin__Bool.Bool__true.
+[A, x] {|!Lang__δ|} A ({|!A*|} A) x --> {|!A*|} A.
+ 
+def {|!ε|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Lang A))).
+[A] {|!Lang__ν|} A ({|!ε|} A) --> Agda__Builtin__Bool.Bool__true.
+[A, x] {|!Lang__δ|} A ({|!ε|} A) x --> {|!∅|} A.
+ 
+def {|!¬|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Lang A))))).
+[A, x] {|!Lang__ν|} A ({|!¬|} A x) --> boolaux.not ({|!Lang__ν|} A x).
+[A, x0, x] {|!Lang__δ|} A ({|!¬|} A x0) x --> {|!¬|} A ({|!Lang__δ|} A x0 x).
+ 
+def {|!_∪_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Lang A))))))).
+[A, x0, x] {|!Lang__ν|} A ({|!_∪_|} A x0 x) --> boolaux.{|!_∨_|} ({|!Lang__ν|} A x0) ({|!Lang__ν|} A x).
+[A, x1, x0, x] {|!Lang__δ|} A ({|!_∪_|} A x1 x0) x --> {|!_∪_|} A ({|!Lang__δ|} A x1 x) ({|!Lang__δ|} A x0 x).
+ 
+def {|!_∩_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Lang A))))))).
+[A, x0, x] {|!Lang__ν|} A ({|!_∩_|} A x0 x) --> boolaux.{|!_∧_|} ({|!Lang__ν|} A x0) ({|!Lang__ν|} A x).
+[A, x1, x0, x] {|!Lang__δ|} A ({|!_∩_|} A x1 x0) x --> {|!_∩_|} A ({|!Lang__δ|} A x1 x) ({|!Lang__δ|} A x0 x).
+ 
+def {|!_·_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Lang A))))))).
+[A, x0, x] {|!Lang__ν|} A ({|!_·_|} A x0 x) --> boolaux.{|!_∧_|} ({|!Lang__ν|} A x0) ({|!Lang__ν|} A x).
+[A, x1, x0, x] {|!Lang__δ|} A ({|!_·_|} A x1 x0) x --> boolaux.if_then_else_ (Lang A) ({|!Lang__ν|} A x1) ({|!_∪_|} A ({|!_·_|} A ({|!Lang__δ|} A x1 x) x0) ({|!Lang__δ|} A x0 x)) ({|!_·_|} A ({|!Lang__δ|} A x1 x) x0).
+ 
+def {|!_*|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (_0 => (Lang A))))).
+[A, x] {|!Lang__ν|} A ({|!_*|} A x) --> Agda__Builtin__Bool.Bool__true.
+[A, x0, x] {|!Lang__δ|} A ({|!_*|} A x0) x --> {|!_·_|} A ({|!Lang__δ|} A x0 x) ({|!_*|} A x0).
+ 
+{|!TYPE___≈_|} : (A : Agda.Term (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0))) -> (l : Agda.Term (Agda.set univ.0) (Lang A)) -> ({|!s|} : Agda.Term (Agda.set univ.0) (Lang A)) -> Type.
+{|!_≈_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set (univ.s univ.0)) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set (univ.s univ.0)) (Lang A) ({|!s|} => (Agda.code (Agda.set univ.0)))))))).
+[A, l, {|!s|}] Agda.Term _ ({|!_≈_|} A l {|!s|}) --> {|!TYPE___≈_|} A l {|!s|}.
+def {|!_≈___≈ν|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A l {|!s|}) (r => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|})))))))))).
+def {|!_≈___≈δ|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A l {|!s|}) (r => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (a => ({|!_≈_|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a)))))))))))).
+{|!_≈_'constructor|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|})) ({|!≈ν|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (a => ({|!_≈_|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a)))) ({|!≈δ|} => ({|!_≈_|} A l {|!s|}))))))))))).
+
+[A, l, {|!s|}, {|!≈ν|}, {|!≈δ|}] {|!_≈___≈ν|} A l {|!s|} ({|!_≈_'constructor|} A l {|!s|} {|!≈ν|} {|!≈δ|}) --> {|!≈ν|}.
+ 
+[A, l, {|!s|}, {|!≈ν|}, {|!≈δ|}] {|!_≈___≈δ|} A l {|!s|} ({|!_≈_'constructor|} A l {|!s|} {|!≈ν|} {|!≈δ|}) --> {|!≈δ|}.
+ 
+
+def {|!≈refl|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A l l))))).
+[A, l] {|!_≈___≈ν|} A l l ({|!≈refl|} A l) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A l).
+[A, l, a] {|!_≈___≈δ|} A l l ({|!≈refl|} A l) a --> {|!≈refl|} A ({|!Lang__δ|} A l a).
+ 
+def {|!≈sym|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A l {|!s|}) (_0 => ({|!_≈_|} A {|!s|} l))))))))).
+[A, l, {|!s|}, x] {|!_≈___≈ν|} A {|!s|} l ({|!≈sym|} A l {|!s|} x) --> eqaux.sym Agda__Builtin__Bool.Bool ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!_≈___≈ν|} A l {|!s|} x).
+[A, l, {|!s|}, x, a] {|!_≈___≈δ|} A {|!s|} l ({|!≈sym|} A l {|!s|} x) a --> {|!≈sym|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!_≈___≈δ|} A l {|!s|} x a).
+ 
+def {|!≈trans|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (k => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A l {|!s|}) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A {|!s|} k) (_0 => ({|!_≈_|} A l k))))))))))))).
+[A, l, {|!s|}, k, x0, x] {|!_≈___≈ν|} A l k ({|!≈trans|} A l {|!s|} k x0 x) --> eqaux.trans Agda__Builtin__Bool.Bool ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!Lang__ν|} A k) ({|!_≈___≈ν|} A l {|!s|} x0) ({|!_≈___≈ν|} A {|!s|} k x).
+[A, l, {|!s|}, k, x0, x, a] {|!_≈___≈δ|} A l k ({|!≈trans|} A l {|!s|} k x0 x) a --> {|!≈trans|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!Lang__δ|} A k a) ({|!_≈___≈δ|} A l {|!s|} x0 a) ({|!_≈___≈δ|} A {|!s|} k x a).
+ 
+def {|!∪-assoc|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (k => ({|!_≈_|} A ({|!_∪_|} A ({|!_∪_|} A l {|!s|}) k) ({|!_∪_|} A l ({|!_∪_|} A {|!s|} k))))))))))).
+[A, l, {|!s|}, k] {|!_≈___≈ν|} A {{|!_∪_|} A ({|!_∪_|} A l {|!s|}) k} {{|!_∪_|} A l ({|!_∪_|} A {|!s|} k)} ({|!∪-assoc|} A l {|!s|} k) --> boolaux.{|!∨-assoc|} ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!Lang__ν|} A k).
+[A, l, {|!s|}, k, a] {|!_≈___≈δ|} A {{|!_∪_|} A ({|!_∪_|} A l {|!s|}) k} {{|!_∪_|} A l ({|!_∪_|} A {|!s|} k)} ({|!∪-assoc|} A l {|!s|} k) a --> {|!∪-assoc|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!Lang__δ|} A k a).
+ 
+def {|!∪-comm|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => ({|!_≈_|} A ({|!_∪_|} A l {|!s|}) ({|!_∪_|} A {|!s|} l)))))))).
+[A, l, {|!s|}] {|!_≈___≈ν|} A {{|!_∪_|} A l {|!s|}} {{|!_∪_|} A {|!s|} l} ({|!∪-comm|} A l {|!s|}) --> boolaux.{|!∨-comm|} ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}).
+[A, l, {|!s|}, a] {|!_≈___≈δ|} A {{|!_∪_|} A l {|!s|}} {{|!_∪_|} A {|!s|} l} ({|!∪-comm|} A l {|!s|}) a --> {|!∪-comm|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a).
+ 
+def {|!∪-idem|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∪_|} A l l) l))))).
+[A, l] {|!_≈___≈ν|} A {{|!_∪_|} A l l} l ({|!∪-idem|} A l) --> boolaux.{|!∨-idem|} ({|!Lang__ν|} A l).
+[A, l, a] {|!_≈___≈δ|} A {{|!_∪_|} A l l} l ({|!∪-idem|} A l) a --> {|!∪-idem|} A ({|!Lang__δ|} A l a).
+ 
+def {|!∪-cong|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!l'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A l {|!l'|}) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A {|!s|} {|!s'|}) (_0 => ({|!_≈_|} A ({|!_∪_|} A l {|!s|}) ({|!_∪_|} A {|!l'|} {|!s'|})))))))))))))))).
+[A, {|!l'|}, {|!s'|}, l, {|!s|}, x0, x] {|!_≈___≈ν|} A {{|!_∪_|} A l {|!s|}} {{|!_∪_|} A {|!l'|} {|!s'|}} ({|!∪-cong|} A {|!l'|} {|!s'|} l {|!s|} x0 x) --> boolaux.{|!∨-cong|} ({|!Lang__ν|} A {|!l'|}) ({|!Lang__ν|} A {|!s'|}) ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!_≈___≈ν|} A l {|!l'|} x0) ({|!_≈___≈ν|} A {|!s|} {|!s'|} x).
+[A, {|!l'|}, {|!s'|}, l, {|!s|}, x0, x, a] {|!_≈___≈δ|} A {{|!_∪_|} A l {|!s|}} {{|!_∪_|} A {|!l'|} {|!s'|}} ({|!∪-cong|} A {|!l'|} {|!s'|} l {|!s|} x0 x) a --> {|!∪-cong|} A ({|!Lang__δ|} A {|!l'|} a) ({|!Lang__δ|} A {|!s'|} a) ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!_≈___≈δ|} A l {|!l'|} x0 a) ({|!_≈___≈δ|} A {|!s|} {|!s'|} x a).
+ 
+def {|!∩-assoc|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (k => ({|!_≈_|} A ({|!_∩_|} A ({|!_∩_|} A l {|!s|}) k) ({|!_∩_|} A l ({|!_∩_|} A {|!s|} k))))))))))).
+[A, l, {|!s|}, k] {|!_≈___≈ν|} A {{|!_∩_|} A ({|!_∩_|} A l {|!s|}) k} {{|!_∩_|} A l ({|!_∩_|} A {|!s|} k)} ({|!∩-assoc|} A l {|!s|} k) --> boolaux.{|!∧-assoc|} ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!Lang__ν|} A k).
+[A, l, {|!s|}, k, a] {|!_≈___≈δ|} A {{|!_∩_|} A ({|!_∩_|} A l {|!s|}) k} {{|!_∩_|} A l ({|!_∩_|} A {|!s|} k)} ({|!∩-assoc|} A l {|!s|} k) a --> {|!∩-assoc|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!Lang__δ|} A k a).
+ 
+def {|!∩-comm|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => ({|!_≈_|} A ({|!_∩_|} A l {|!s|}) ({|!_∩_|} A {|!s|} l)))))))).
+[A, l, {|!s|}] {|!_≈___≈ν|} A {{|!_∩_|} A l {|!s|}} {{|!_∩_|} A {|!s|} l} ({|!∩-comm|} A l {|!s|}) --> boolaux.{|!∧-comm|} ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}).
+[A, l, {|!s|}, a] {|!_≈___≈δ|} A {{|!_∩_|} A l {|!s|}} {{|!_∩_|} A {|!s|} l} ({|!∩-comm|} A l {|!s|}) a --> {|!∩-comm|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a).
+ 
+def {|!∩-idem|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∩_|} A l l) l))))).
+[A, l] {|!_≈___≈ν|} A {{|!_∩_|} A l l} l ({|!∩-idem|} A l) --> boolaux.{|!∧-idem|} ({|!Lang__ν|} A l).
+[A, l, a] {|!_≈___≈δ|} A {{|!_∩_|} A l l} l ({|!∩-idem|} A l) a --> {|!∩-idem|} A ({|!Lang__δ|} A l a).
+ 
+def {|!∩-cong|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!l'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A l {|!l'|}) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) ({|!_≈_|} A {|!s|} {|!s'|}) (_0 => ({|!_≈_|} A ({|!_∩_|} A l {|!s|}) ({|!_∩_|} A {|!l'|} {|!s'|})))))))))))))))).
+[A, {|!l'|}, {|!s'|}, l, {|!s|}, x0, x] {|!_≈___≈ν|} A {{|!_∩_|} A l {|!s|}} {{|!_∩_|} A {|!l'|} {|!s'|}} ({|!∩-cong|} A {|!l'|} {|!s'|} l {|!s|} x0 x) --> boolaux.{|!∧-cong|} ({|!Lang__ν|} A {|!l'|}) ({|!Lang__ν|} A {|!s'|}) ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!_≈___≈ν|} A l {|!l'|} x0) ({|!_≈___≈ν|} A {|!s|} {|!s'|} x).
+[A, {|!l'|}, {|!s'|}, l, {|!s|}, x0, x, a] {|!_≈___≈δ|} A {{|!_∩_|} A l {|!s|}} {{|!_∩_|} A {|!l'|} {|!s'|}} ({|!∩-cong|} A {|!l'|} {|!s'|} l {|!s|} x0 x) a --> {|!∩-cong|} A ({|!Lang__δ|} A {|!l'|} a) ({|!Lang__δ|} A {|!s'|} a) ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!_≈___≈δ|} A l {|!l'|} x0 a) ({|!_≈___≈δ|} A {|!s|} {|!s'|} x a).
+ 
+def {|!∪-unit₁|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∪_|} A ({|!∅|} A) l) l))))).
+[A, l] {|!_≈___≈ν|} A {{|!_∪_|} A ({|!∅|} A) l} l ({|!∪-unit₁|} A l) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A ({|!_∪_|} A ({|!∅|} A) l)).
+[A, l, a] {|!_≈___≈δ|} A {{|!_∪_|} A ({|!∅|} A) l} l ({|!∪-unit₁|} A l) a --> {|!∪-unit₁|} A ({|!Lang__δ|} A l a).
+ 
+def {|!∪-unit₂|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∪_|} A l ({|!∅|} A)) l))))).
+[A, l] {|!∪-unit₂|} A l --> {|!≈trans|} A ({|!_∪_|} A l ({|!∅|} A)) ({|!_∪_|} A ({|!∅|} A) l) l ({|!∪-comm|} A l ({|!∅|} A)) ({|!∪-unit₁|} A l).
+ 
+def {|!∩-unit₁|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∩_|} A ({|!A*|} A) l) l))))).
+[A, l] {|!_≈___≈ν|} A {{|!_∩_|} A ({|!A*|} A) l} l ({|!∩-unit₁|} A l) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A ({|!_∩_|} A ({|!A*|} A) l)).
+[A, l, a] {|!_≈___≈δ|} A {{|!_∩_|} A ({|!A*|} A) l} l ({|!∩-unit₁|} A l) a --> {|!∩-unit₁|} A ({|!Lang__δ|} A l a).
+ 
+def {|!∩-unit₂|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∩_|} A l ({|!A*|} A)) l))))).
+[A, l] {|!∩-unit₂|} A l --> {|!≈trans|} A ({|!_∩_|} A l ({|!A*|} A)) ({|!_∩_|} A ({|!A*|} A) l) l ({|!∩-comm|} A l ({|!A*|} A)) ({|!∩-unit₁|} A l).
+ 
+def {|!∪-∩-dist|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (k => ({|!_≈_|} A ({|!_∪_|} A l ({|!_∩_|} A {|!s|} k)) ({|!_∩_|} A ({|!_∪_|} A l {|!s|}) ({|!_∪_|} A l k))))))))))).
+[A, l, {|!s|}, k] {|!_≈___≈ν|} A {{|!_∪_|} A l ({|!_∩_|} A {|!s|} k)} {{|!_∩_|} A ({|!_∪_|} A l {|!s|}) ({|!_∪_|} A l k)} ({|!∪-∩-dist|} A l {|!s|} k) --> boolaux.{|!∨-∧-dist|} ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!Lang__ν|} A k).
+[A, l, {|!s|}, k, a] {|!_≈___≈δ|} A {{|!_∪_|} A l ({|!_∩_|} A {|!s|} k)} {{|!_∩_|} A ({|!_∪_|} A l {|!s|}) ({|!_∪_|} A l k)} ({|!∪-∩-dist|} A l {|!s|} k) a --> {|!∪-∩-dist|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!Lang__δ|} A k a).
+ 
+def {|!∩-∪-dist|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (k => ({|!_≈_|} A ({|!_∩_|} A l ({|!_∪_|} A {|!s|} k)) ({|!_∪_|} A ({|!_∩_|} A l {|!s|}) ({|!_∩_|} A l k))))))))))).
+[A, l, {|!s|}, k] {|!_≈___≈ν|} A {{|!_∩_|} A l ({|!_∪_|} A {|!s|} k)} {{|!_∪_|} A ({|!_∩_|} A l {|!s|}) ({|!_∩_|} A l k)} ({|!∩-∪-dist|} A l {|!s|} k) --> boolaux.{|!∧-∨-dist|} ({|!Lang__ν|} A l) ({|!Lang__ν|} A {|!s|}) ({|!Lang__ν|} A k).
+[A, l, {|!s|}, k, a] {|!_≈___≈δ|} A {{|!_∩_|} A l ({|!_∪_|} A {|!s|} k)} {{|!_∪_|} A ({|!_∩_|} A l {|!s|}) ({|!_∩_|} A l k)} ({|!∩-∪-dist|} A l {|!s|} k) a --> {|!∩-∪-dist|} A ({|!Lang__δ|} A l a) ({|!Lang__δ|} A {|!s|} a) ({|!Lang__δ|} A k a).
+ 
+def {|!∪-comp|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∪_|} A l ({|!¬|} A l)) ({|!A*|} A)))))).
+[A, l] {|!_≈___≈ν|} A {{|!_∪_|} A l ({|!¬|} A l)} {{|!A*|} A} ({|!∪-comp|} A l) --> boolaux.{|!∨-comp|} ({|!Lang__ν|} A l).
+[A, l, a] {|!_≈___≈δ|} A {{|!_∪_|} A l ({|!¬|} A l)} {{|!A*|} A} ({|!∪-comp|} A l) a --> {|!∪-comp|} A ({|!Lang__δ|} A l a).
+ 
+def {|!∩-comp|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Lang A) (l => ({|!_≈_|} A ({|!_∩_|} A l ({|!¬|} A l)) ({|!∅|} A)))))).
+[A, l] {|!_≈___≈ν|} A {{|!_∩_|} A l ({|!¬|} A l)} {{|!∅|} A} ({|!∩-comp|} A l) --> boolaux.{|!∧-comp|} ({|!Lang__ν|} A l).
+[A, l, a] {|!_≈___≈δ|} A {{|!_∩_|} A l ({|!¬|} A l)} {{|!∅|} A} ({|!∩-comp|} A l) a --> {|!∩-comp|} A ({|!Lang__δ|} A l a).
+ 
+TYPE__DA : (S : Agda.Term (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0))) -> (A : Agda.Term (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0))) -> Type.
+DA : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.code (Agda.set univ.0)))))).
+[S, A] Agda.Term _ (DA S A) --> TYPE__DA S A.
+def {|!DA__ν|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (r => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => Agda__Builtin__Bool.Bool)))))))).
+def {|!DA__δ|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (r => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (a => S)))))))))).
+{|!DA'constructor|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => Agda__Builtin__Bool.Bool)) ({|!ν|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (a => S)))) ({|!δ|} => (DA S A))))))))).
+
+[S, A, {|!ν|}, {|!δ|}] {|!DA__ν|} S A ({|!DA'constructor|} S A {|!ν|} {|!δ|}) --> {|!ν|}.
+ 
+[S, A, {|!ν|}, {|!δ|}] {|!DA__δ|} S A ({|!DA'constructor|} S A {|!ν|} {|!δ|}) --> {|!δ|}.
+ 
+
+def lang : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (da => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => (Lang A))))))))).
+[A, S, da, {|!s|}] {|!Lang__ν|} A (lang A S da {|!s|}) --> {|!DA__ν|} S A da {|!s|}.
+[A, S, da, {|!s|}, x] {|!Lang__δ|} A (lang A S da {|!s|}) x --> lang A S da ({|!DA__δ|} S A da {|!s|} x).
+ 
+{|!TYPE___×_|} : (A : Agda.Term (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0))) -> (B : Agda.Term (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0))) -> Type.
+{|!_×_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (B => (Agda.code (Agda.set univ.0)))))).
+[A, B] Agda.Term _ ({|!_×_|} A B) --> {|!TYPE___×_|} A B.
+def {|!_×___fst|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (B => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) ({|!_×_|} A B) (r => A)))))).
+def {|!_×___snd|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (B => (Agda.proj_prod (Agda.set univ.0) (Agda.set univ.0) ({|!_×_|} A B) (r => B)))))).
+{|!_,_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (B => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (fst => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) B (snd => ({|!_×_|} A B))))))))).
+
+[A, B, fst, snd] {|!_×___fst|} A B ({|!_,_|} A B fst snd) --> fst.
+ 
+[A, B, fst, snd] {|!_×___snd|} A B ({|!_,_|} A B fst snd) --> snd.
+ 
+
+def {|!_⊕_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) ({|!S'|} => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (da => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA {|!S'|} A) ({|!da'|} => (DA ({|!_×_|} S {|!S'|}) A))))))))))).
+[S, {|!S'|}, A, da, {|!da'|}, fst, snd] {|!DA__ν|} {{|!_×_|} S {|!S'|}} A ({|!_⊕_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} fst snd) --> boolaux.{|!_∨_|} ({|!DA__ν|} S A da fst) ({|!DA__ν|} {|!S'|} A {|!da'|} snd).
+[S, {|!S'|}, A, da, {|!da'|}, fst, snd, a] {|!DA__δ|} {{|!_×_|} S {|!S'|}} A ({|!_⊕_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} fst snd) a --> {|!_,_|} S {|!S'|} ({|!DA__δ|} S A da fst a) ({|!DA__δ|} {|!S'|} A {|!da'|} snd a).
+ 
+def {|!⊕-is-∪|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) ({|!S'|} => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (da => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA {|!S'|} A) ({|!da'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) {|!S'|} ({|!s'|} => ({|!_≈_|} A (lang A ({|!_×_|} S {|!S'|}) ({|!_⊕_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|})) ({|!_∪_|} A (lang A S da {|!s|}) (lang A {|!S'|} {|!da'|} {|!s'|}))))))))))))))))).
+[S, {|!S'|}, A, da, {|!da'|}, {|!s|}, {|!s'|}] {|!_≈___≈ν|} A {lang A ({|!_×_|} S {|!S'|}) ({|!_⊕_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|})} {{|!_∪_|} A (lang A S da {|!s|}) (lang A {|!S'|} {|!da'|} {|!s'|})} ({|!⊕-is-∪|} S {|!S'|} A da {|!da'|} {|!s|} {|!s'|}) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A (lang A ({|!_×_|} S {|!S'|}) ({|!_⊕_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|}))).
+[S, {|!S'|}, A, da, {|!da'|}, {|!s|}, {|!s'|}, a] {|!_≈___≈δ|} A {lang A ({|!_×_|} S {|!S'|}) ({|!_⊕_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|})} {{|!_∪_|} A (lang A S da {|!s|}) (lang A {|!S'|} {|!da'|} {|!s'|})} ({|!⊕-is-∪|} S {|!S'|} A da {|!da'|} {|!s|} {|!s'|}) a --> {|!⊕-is-∪|} S {|!S'|} A da {|!da'|} ({|!DA__δ|} S A da {|!s|} a) ({|!DA__δ|} {|!S'|} A {|!da'|} {|!s'|} a).
+ 
+def {|!_⊗_|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) ({|!S'|} => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (da => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA {|!S'|} A) ({|!da'|} => (DA ({|!_×_|} S {|!S'|}) A))))))))))).
+[S, {|!S'|}, A, da, {|!da'|}, fst, snd] {|!DA__ν|} {{|!_×_|} S {|!S'|}} A ({|!_⊗_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} fst snd) --> boolaux.{|!_∧_|} ({|!DA__ν|} S A da fst) ({|!DA__ν|} {|!S'|} A {|!da'|} snd).
+[S, {|!S'|}, A, da, {|!da'|}, fst, snd, a] {|!DA__δ|} {{|!_×_|} S {|!S'|}} A ({|!_⊗_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} fst snd) a --> {|!_,_|} S {|!S'|} ({|!DA__δ|} S A da fst a) ({|!DA__δ|} {|!S'|} A {|!da'|} snd a).
+ 
+def {|!⊗-is-∩|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) ({|!S'|} => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (da => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA {|!S'|} A) ({|!da'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) {|!S'|} ({|!s'|} => ({|!_≈_|} A (lang A ({|!_×_|} S {|!S'|}) ({|!_⊗_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|})) ({|!_∩_|} A (lang A S da {|!s|}) (lang A {|!S'|} {|!da'|} {|!s'|}))))))))))))))))).
+[S, {|!S'|}, A, da, {|!da'|}, {|!s|}, {|!s'|}] {|!_≈___≈ν|} A {lang A ({|!_×_|} S {|!S'|}) ({|!_⊗_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|})} {{|!_∩_|} A (lang A S da {|!s|}) (lang A {|!S'|} {|!da'|} {|!s'|})} ({|!⊗-is-∩|} S {|!S'|} A da {|!da'|} {|!s|} {|!s'|}) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A (lang A ({|!_×_|} S {|!S'|}) ({|!_⊗_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|}))).
+[S, {|!S'|}, A, da, {|!da'|}, {|!s|}, {|!s'|}, a] {|!_≈___≈δ|} A {lang A ({|!_×_|} S {|!S'|}) ({|!_⊗_|} S {|!S'|} A da {|!da'|}) ({|!_,_|} S {|!S'|} {|!s|} {|!s'|})} {{|!_∩_|} A (lang A S da {|!s|}) (lang A {|!S'|} {|!da'|} {|!s'|})} ({|!⊗-is-∩|} S {|!S'|} A da {|!da'|} {|!s|} {|!s'|}) a --> {|!⊗-is-∩|} S {|!S'|} A da {|!da'|} ({|!DA__δ|} S A da {|!s|} a) ({|!DA__δ|} {|!S'|} A {|!da'|} {|!s'|} a).
+ 
+def inv : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (_0 => (DA S A))))))).
+[S, A, x, {|!s|}] {|!DA__ν|} S A (inv S A x) {|!s|} --> boolaux.not ({|!DA__ν|} S A x {|!s|}).
+[S, A, x, {|!s|}, a] {|!DA__δ|} S A (inv S A x) {|!s|} a --> {|!DA__δ|} S A x {|!s|} a.
+ 
+def {|!inv-is-¬|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set (univ.s univ.0)) (Agda.code (Agda.set univ.0)) (S => (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (DA S A) (da => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) S ({|!s|} => ({|!_≈_|} A (lang A S (inv S A da) {|!s|}) ({|!¬|} A (lang A S da {|!s|}))))))))))).
+[S, A, da, {|!s|}] {|!_≈___≈ν|} A {lang A S (inv S A da) {|!s|}} {{|!¬|} A (lang A S da {|!s|})} ({|!inv-is-¬|} S A da {|!s|}) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A (lang A S (inv S A da) {|!s|})).
+[S, A, da, {|!s|}, a] {|!_≈___≈δ|} A {lang A S (inv S A da) {|!s|}} {{|!¬|} A (lang A S da {|!s|})} ({|!inv-is-¬|} S A da {|!s|}) a --> {|!inv-is-¬|} S A da ({|!DA__δ|} S A da {|!s|} a).
+ 
+def {|!∅A|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (DA Agda__Builtin__Unit.{|!⊤|} A))).
+[A, {|!s|}] {|!DA__ν|} {Agda__Builtin__Unit.{|!⊤|}} A ({|!∅A|} A) {|!s|} --> Agda__Builtin__Bool.Bool__false.
+[A, {|!s|}, a] {|!DA__δ|} {Agda__Builtin__Unit.{|!⊤|}} A ({|!∅A|} A) {|!s|} a --> {|!s|}.
+ 
+def {|!∅A-is-∅|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Unit.{|!⊤|} ({|!s|} => ({|!_≈_|} A (lang A Agda__Builtin__Unit.{|!⊤|} ({|!∅A|} A) {|!s|}) ({|!∅|} A)))))).
+[A, {|!s|}] {|!_≈___≈ν|} A {lang A Agda__Builtin__Unit.{|!⊤|} ({|!∅A|} A) {|!s|}} {{|!∅|} A} ({|!∅A-is-∅|} A {|!s|}) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A (lang A Agda__Builtin__Unit.{|!⊤|} ({|!∅A|} A) {|!s|})).
+[A, {|!s|}, a] {|!_≈___≈δ|} A {lang A Agda__Builtin__Unit.{|!⊤|} ({|!∅A|} A) {|!s|}} {{|!∅|} A} ({|!∅A-is-∅|} A {|!s|}) a --> {|!∅A-is-∅|} A {|!s|}.
+ 
+def {|!εA|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (DA Agda__Builtin__Bool.Bool A))).
+[A, {|!s|}] {|!DA__ν|} {Agda__Builtin__Bool.Bool} A ({|!εA|} A) {|!s|} --> {|!s|}.
+[A, {|!s|}, a] {|!DA__δ|} {Agda__Builtin__Bool.Bool} A ({|!εA|} A) {|!s|} a --> Agda__Builtin__Bool.Bool__false.
+ 
+def {|!εA-is-ε'|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => ({|!_≈_|} A (lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__false) ({|!∅|} A)))).
+[A] {|!_≈___≈ν|} A {lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__false} {{|!∅|} A} ({|!εA-is-ε'|} A) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A (lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__false)).
+[A, a] {|!_≈___≈δ|} A {lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__false} {{|!∅|} A} ({|!εA-is-ε'|} A) a --> {|!εA-is-ε'|} A.
+ 
+def {|!εA-is-ε|} : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => ({|!_≈_|} A (lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__true) ({|!ε|} A)))).
+[A] {|!_≈___≈ν|} A {lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__true} {{|!ε|} A} ({|!εA-is-ε|} A) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!Lang__ν|} A (lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__true)).
+[A, a] {|!_≈___≈δ|} A {lang A Agda__Builtin__Bool.Bool ({|!εA|} A) Agda__Builtin__Bool.Bool__true} {{|!ε|} A} ({|!εA-is-ε|} A) a --> {|!εA-is-ε'|} A.
+ 

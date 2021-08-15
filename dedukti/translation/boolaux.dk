@@ -1,0 +1,66 @@
+def not : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (_0 => Agda__Builtin__Bool.Bool)).
+[] not Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Bool.Bool__true.
+[] not Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Bool.Bool__false.
+ 
+def {|!_∨_|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (_0 => Agda__Builtin__Bool.Bool)))).
+[x] {|!_∨_|} Agda__Builtin__Bool.Bool__false x --> x.
+[x] {|!_∨_|} Agda__Builtin__Bool.Bool__true x --> Agda__Builtin__Bool.Bool__true.
+ 
+def {|!_∧_|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (_0 => Agda__Builtin__Bool.Bool)))).
+[x] {|!_∧_|} Agda__Builtin__Bool.Bool__false x --> Agda__Builtin__Bool.Bool__false.
+[x] {|!_∧_|} Agda__Builtin__Bool.Bool__true x --> x.
+ 
+def if_then_else_ : Agda.Term (Agda.set (univ.s univ.0)) (Agda.prod (Agda.set (univ.s univ.0)) (Agda.set univ.0) (Agda.code (Agda.set univ.0)) (A => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) A (_0 => A)))))))).
+[A, x0, x] if_then_else_ A Agda__Builtin__Bool.Bool__false x0 x --> x.
+[A, x0, x] if_then_else_ A Agda__Builtin__Bool.Bool__true x0 x --> x0.
+ 
+def {|!∨-assoc|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (c => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} ({|!_∨_|} a b) c) ({|!_∨_|} a ({|!_∨_|} b c))))))))).
+[b, c] {|!∨-assoc|} Agda__Builtin__Bool.Bool__false b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} ({|!_∨_|} Agda__Builtin__Bool.Bool__false b) c).
+[b, c] {|!∨-assoc|} Agda__Builtin__Bool.Bool__true b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} ({|!_∨_|} Agda__Builtin__Bool.Bool__true b) c).
+ 
+def {|!∧-assoc|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (c => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} ({|!_∧_|} a b) c) ({|!_∧_|} a ({|!_∧_|} b c))))))))).
+[b, c] {|!∧-assoc|} Agda__Builtin__Bool.Bool__false b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} ({|!_∧_|} Agda__Builtin__Bool.Bool__false b) c).
+[b, c] {|!∧-assoc|} Agda__Builtin__Bool.Bool__true b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} ({|!_∧_|} Agda__Builtin__Bool.Bool__true b) c).
+ 
+def {|!∨-comm|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} a b) ({|!_∨_|} b a)))))).
+[] {|!∨-comm|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__false).
+[] {|!∨-comm|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__true).
+[] {|!∨-comm|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__false).
+[] {|!∨-comm|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__true).
+ 
+def {|!∨-cong|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool ({|!a'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool ({|!b'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool a {|!a'|}) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool b {|!b'|}) (_0 => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} a b) ({|!_∨_|} {|!a'|} {|!b'|})))))))))))))).
+[a, b] {|!∨-cong|} a b a b (Agda__Builtin__Equality.{|!_≡___refl|} {univ.0} {Agda__Builtin__Bool.Bool} a) (Agda__Builtin__Equality.{|!_≡___refl|} {univ.0} {Agda__Builtin__Bool.Bool} b) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} a b).
+ 
+def {|!∧-comm|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} a b) ({|!_∧_|} b a)))))).
+[] {|!∧-comm|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__false).
+[] {|!∧-comm|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__true).
+[] {|!∧-comm|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__false).
+[] {|!∧-comm|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__true).
+ 
+def {|!∨-idem|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} a a) a))).
+[] {|!∨-idem|} Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__false).
+[] {|!∨-idem|} Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__true).
+ 
+def {|!∧-idem|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} a a) a))).
+[] {|!∧-idem|} Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__false Agda__Builtin__Bool.Bool__false).
+[] {|!∧-idem|} Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__true Agda__Builtin__Bool.Bool__true).
+ 
+def {|!∧-cong|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool ({|!a'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool ({|!b'|} => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool a {|!a'|}) (_0 => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool b {|!b'|}) (_0 => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} a b) ({|!_∧_|} {|!a'|} {|!b'|})))))))))))))).
+[a, b] {|!∧-cong|} a b a b (Agda__Builtin__Equality.{|!_≡___refl|} {univ.0} {Agda__Builtin__Bool.Bool} a) (Agda__Builtin__Equality.{|!_≡___refl|} {univ.0} {Agda__Builtin__Bool.Bool} b) --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} a b).
+ 
+def {|!∨-∧-dist|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (c => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} a ({|!_∧_|} b c)) ({|!_∧_|} ({|!_∨_|} a b) ({|!_∨_|} a c))))))))).
+[b, c] {|!∨-∧-dist|} Agda__Builtin__Bool.Bool__false b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__false ({|!_∧_|} b c)).
+[b, c] {|!∨-∧-dist|} Agda__Builtin__Bool.Bool__true b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__true ({|!_∧_|} b c)).
+ 
+def {|!∧-∨-dist|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (b => (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (c => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} a ({|!_∨_|} b c)) ({|!_∨_|} ({|!_∧_|} a b) ({|!_∧_|} a c))))))))).
+[b, c] {|!∧-∨-dist|} Agda__Builtin__Bool.Bool__false b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__false ({|!_∨_|} b c)).
+[b, c] {|!∧-∨-dist|} Agda__Builtin__Bool.Bool__true b c --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__true ({|!_∨_|} b c)).
+ 
+def {|!∨-comp|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} a (not a)) Agda__Builtin__Bool.Bool__true))).
+[] {|!∨-comp|} Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__false (not Agda__Builtin__Bool.Bool__false)).
+[] {|!∨-comp|} Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∨_|} Agda__Builtin__Bool.Bool__true (not Agda__Builtin__Bool.Bool__true)).
+ 
+def {|!∧-comp|} : Agda.Term (Agda.set univ.0) (Agda.prod (Agda.set univ.0) (Agda.set univ.0) Agda__Builtin__Bool.Bool (a => (Agda__Builtin__Equality.{|!_≡_|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} a (not a)) Agda__Builtin__Bool.Bool__false))).
+[] {|!∧-comp|} Agda__Builtin__Bool.Bool__false --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__false (not Agda__Builtin__Bool.Bool__false)).
+[] {|!∧-comp|} Agda__Builtin__Bool.Bool__true --> Agda__Builtin__Equality.{|!_≡___refl|} univ.0 Agda__Builtin__Bool.Bool ({|!_∧_|} Agda__Builtin__Bool.Bool__true (not Agda__Builtin__Bool.Bool__true)).
+ 
